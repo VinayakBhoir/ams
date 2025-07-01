@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Client A",
+    "logo": "/assets/images/logo1.png"
+  },
+  {
+    "name": "Client B",
+    "logo": "/assets/images/logo2.png"
+  },
+  {
+    "name": "Client C",
+    "logo": "/assets/images/logo3.png"
+  }
+]

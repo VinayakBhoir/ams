@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Plant 1",
+    "logo": "/assets/images/plant1.png"
+  },
+  {
+    "name": "Plant 2",
+    "logo": "/assets/images/plant2.png"
+  },
+  {
+    "name": "Plant 3",
+    "logo": "/assets/images/plant3.png"
+  }
+]
