@@ -15,7 +15,7 @@ const StatBox = ({ label, value, suffix }) => {
   useEffect(() => {
     let start = 0;
     const end = value;
-    const duration = 1500; // in ms
+    const duration = 1500;
     const stepTime = Math.abs(Math.floor(duration / end));
 
     const timer = setInterval(() => {
@@ -31,25 +31,25 @@ const StatBox = ({ label, value, suffix }) => {
 
   return (
     <motion.div
-      className="text-center p-6 bg-white rounded-lg shadow-lg w-48"
+      className="text-center p-6 bg-[var(--color-background)] border border-[var(--color-muted)] rounded-2xl shadow-soft w-48"
       initial={{ opacity: 0, y: 20 }}
       animate={controls}
       transition={{ duration: 0.5 }}
     >
-      <div className="text-4xl font-bold text-blue-600">
+      <div className="text-4xl font-extrabold text-[var(--color-primary)]">
         {count}
         {suffix}
       </div>
-      <p className="mt-2 text-gray-600 font-medium">{label}</p>
+      <p className="mt-2 text-[var(--color-text)] font-medium">{label}</p>
     </motion.div>
   );
 };
 
 const AnimatedStats = () => {
   return (
-    <section className="bg-gray-100 py-16 px-4">
+    <section className="bg-[var(--color-surface)] py-16 px-4">
       <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-12 text-gray-800">
+        <h2 className="text-3xl font-bold mb-12 text-[var(--color-primary)]">
           Our Achievements
         </h2>
         <div className="flex flex-wrap gap-8 justify-center">

@@ -1,14 +1,90 @@
 [
   {
-    "name": "Client A",
-    "logo": "/assets/images/logo1.png"
+    "name": "Nyati Era",
+    "logo": "/src/assets/images/clients/nyati_era.jpg"
   },
   {
-    "name": "Client B",
-    "logo": "/assets/images/logo2.png"
+    "name": "Little Earth",
+    "logo": "/src/assets/images/clients/littele_earth.jpg"
   },
   {
-    "name": "Client C",
-    "logo": "/assets/images/logo3.png"
+    "name": "Nageshwar",
+    "logo": "/src/assets/images/clients/nageshwar.png"
+  },
+  {
+    "name": "Shubham",
+    "logo": "/src/assets/images/clients/shubham.jpg"
+  },
+  {
+    "name": "Naiknavare",
+    "logo": "/src/assets/images/clients/naiknavare.png"
+  },
+  {
+    "name": "Megha",
+    "logo": "/src/assets/images/clients/megha.avif"
+  },
+  {
+    "name": "GK Associates",
+    "logo": "/src/assets/images/clients/gk_associates.png"
+  },
+  {
+    "name": "The Ridges 41",
+    "logo": "/src/assets/images/clients/the_riges_41.jpg"
+  },
+  {
+    "name": "Blue Ridge",
+    "logo": "/src/assets/images/clients/blue_ridge.png"
+  },
+  {
+    "name": "Global",
+    "logo": "/src/assets/images/clients/global.png"
+  },
+  {
+    "name": "Ratanrup Projects",
+    "logo": "/src/assets/images/clients/ratanrup_projects.png"
+  },
+  {
+    "name": "Nyati Evok",
+    "logo": "/src/assets/images/clients/nyati_evok.jpg"
+  },
+  {
+    "name": "Nyati Emerald",
+    "logo": "/src/assets/images/clients/nyati_emrald.png"
+  },
+  {
+    "name": "PMC",
+    "logo": "/src/assets/images/clients/pmc_logo.jpg"
+  },
+  {
+    "name": "PCMC",
+    "logo": "/src/assets/images/clients/pcmc_logo.jpg"
+  },
+  {
+    "name": "Golden Fortune Moshi",
+    "logo": "/src/assets/images/clients/golden_fortune_moshi.jpg"
+  },
+  {
+    "name": "Royal Square",
+    "logo": "/src/assets/images/clients/royal_square.png"
+  },
+  {
+    "name": "Shevi",
+    "logo": "/src/assets/images/clients/shevi.jpg"
+  },
+  {
+    "name": "Silver Gardnia",
+    "logo": "/src/assets/images/clients/silver_gardnia.jpg"
+  },
+  {
+    "name": "Sahyadri Plumeria",
+    "logo": "/src/assets/images/clients/SAHYADRI_PLUMERIA.jpg"
+  },
+  {
+    "name": "KP Landmark",
+    "logo": "/src/assets/images/clients/KP-LR.png"
+  },
+  {
+    "name": "Lodha Rise",
+    "logo": "/src/assets/images/clients/LR.webp"
   }
 ]

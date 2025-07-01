@@ -10,9 +10,9 @@ const stats = [
 
 const Achievements = () => {
   return (
-    <section className="py-16 bg-white text-center">
+    <section className="py-20 bg-[var(--color-muted)] text-center">
       <motion.h2
-        className="text-3xl font-bold text-gray-800 mb-10"
+        className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-12"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -21,18 +21,18 @@ const Achievements = () => {
         Our Achievements
       </motion.h2>
 
-      <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-8">
+      <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6 px-4 md:px-0">
         {stats.map((stat, index) => (
           <motion.div
             key={index}
-            className="bg-blue-50 p-6 rounded-lg shadow hover:shadow-md transition"
+            className="bg-[var(--color-surface)] p-6 rounded-2xl shadow-soft hover:shadow-md transition duration-300"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.2, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <p className="text-3xl font-bold text-blue-600">{stat.value}</p>
-            <p className="text-gray-700 mt-2">{stat.label}</p>
+            <p className="text-4xl font-extrabold text-[var(--color-primary)]">{stat.value}</p>
+            <p className="text-[var(--color-text-sub)] mt-2 font-medium">{stat.label}</p>
           </motion.div>
         ))}
       </div>

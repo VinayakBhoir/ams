@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 
 const mixDesigns = [
@@ -22,10 +21,10 @@ const mixDesigns = [
 
 const ConcreteMixDesigns = () => {
   return (
-    <section className="py-16 px-4 bg-gray-100">
+    <section className="py-20 px-6 bg-[var(--color-muted)]">
       <div className="max-w-5xl mx-auto">
         <motion.h2
-          className="text-3xl font-bold text-center text-gray-800 mb-12"
+          className="text-3xl font-extrabold text-center text-[var(--color-primary)] mb-12"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -38,14 +37,18 @@ const ConcreteMixDesigns = () => {
           {mixDesigns.map((mix, index) => (
             <motion.div
               key={index}
-              className="bg-white p-6 rounded-xl shadow-md border border-gray-200"
+              className="bg-[var(--color-surface)] p-6 rounded-xl shadow-soft border border-[var(--color-muted)]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-xl font-semibold text-blue-700 mb-2">{mix.type}</h3>
-              <p className="text-gray-700">{mix.description}</p>
+              <h3 className="text-xl font-semibold text-[var(--color-accent)] mb-2">
+                {mix.type}
+              </h3>
+              <p className="text-[var(--color-text)] leading-relaxed">
+                {mix.description}
+              </p>
             </motion.div>
           ))}
         </div>

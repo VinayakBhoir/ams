@@ -1,43 +1,40 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
-const clients = [
-  { name: 'UltraTech', logo: '/clients/ultratech.png' },
-  { name: 'ACC', logo: '/clients/acc.png' },
-  { name: 'Ambuja', logo: '/clients/ambuja.png' },
-  { name: 'JK Cement', logo: '/clients/jkcement.png' },
-  { name: 'JSW', logo: '/clients/jsw.png' },
-];
+import clients from '../../data/clients.json';
 
 const Clients = () => {
   return (
-    <section className="bg-white py-16 px-6 text-center">
+    <section className="py-20 bg-[var(--color-muted)] text-center">
       <motion.h2
-        className="text-3xl font-bold text-gray-800 mb-10"
+        className="text-3xl md:text-4xl font-extrabold text-[var(--color-primary)] mb-12"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
         Our Trusted Clients
       </motion.h2>
 
-      <div className="flex flex-wrap justify-center gap-10 items-center">
-        {clients.map((client, idx) => (
+      <div className="flex flex-wrap justify-center gap-10 px-6">
+        {clients.map((client, index) => (
           <motion.div
-            key={idx}
-            className="w-36 h-20 flex items-center justify-center bg-gray-50 rounded-lg shadow hover:shadow-md transition"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: idx * 0.1, duration: 0.4 }}
+            key={index}
+            className="bg-white p-5 rounded-2xl w-48 h-56 flex flex-col items-center justify-center 
+              border border-[var(--color-border-strong)] shadow-md hover:shadow-lg transition-all hover:scale-105"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
           >
             <img
               src={client.logo}
               alt={client.name}
-              className="max-h-12 object-contain"
+              className="h-24 w-auto object-contain mb-3"
               loading="lazy"
             />
+            <p className="text-sm font-semibold text-[var(--color-primary-dark)] text-center">
+              {client.name}
+            </p>
           </motion.div>
         ))}
       </div>

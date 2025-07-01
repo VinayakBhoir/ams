@@ -1,90 +1,86 @@
-import React, { useState, useEffect } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
+
+const navLinks = [
+  { name: "Home", to: "/" },
+  { name: "About", to: "/about" },
+  { name: "Services", to: "/services" },
+  { name: "Products", to: "/products" },
+  { name: "Contact", to: "/contact" },
+];
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    // Close mobile menu on route change
-    setIsOpen(false);
-  }, [location]);
-
-  const navLinks = [
-    { name: "Home", to: "/" },
-    { name: "About", to: "/about" },
-    { name: "Services", to: "/services" },
-    { name: "Products", to: "/products" },
-    { name: "Contact", to: "/contact" },
-  ];
+  const [open, setOpen] = useState(false);
 
   return (
-    <header className={`w-full top-0 z-50 transition-shadow duration-300 ${scrolled ? "shadow-md bg-white" : "bg-white/90 backdrop-blur"}`}>
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="text-xl font-bold text-blue-700">
-          AMS
-        </Link>
-
-        {/* Desktop Links */}
-        <nav className="hidden md:flex gap-6">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              className={({ isActive }) =>
-                `text-sm font-medium transition hover:text-blue-700 ${isActive ? "text-blue-700" : "text-gray-700"}`
-              }
-            >
-              {link.name}
-            </NavLink>
-          ))}
-        </nav>
-
-        {/* Mobile Menu Toggle */}
+    <>
+      {/* Menu button */}
+      <div className="fixed top-5 right-5 z-50">
         <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-gray-700"
+          onClick={() => setOpen(true)}
+          className="w-11 h-11 rounded-full bg-[var(--color-primary)] text-white shadow-md hover:scale-105 transition-all"
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          Menu
         </button>
       </div>
 
-      {/* Mobile Dropdown */}
-      {isOpen && (
-        <motion.div
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: "auto", opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          className="md:hidden bg-white border-t px-6 pb-4"
-        >
-          <div className="flex flex-col space-y-4">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                className={({ isActive }) =>
-                  `text-sm font-medium ${isActive ? "text-blue-700" : "text-gray-700"} hover:text-blue-700`
-                }
-              >
-                {link.name}
-              </NavLink>
-            ))}
-          </div>
-        </motion.div>
-      )}
-    </header>
+      <AnimatePresence>
+        {open && (
+          <>
+            {/* Backdrop Overlay with Fade */}
+            <motion.div
+              className="fixed inset-0 bg-black bg-opacity-40 z-40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setOpen(false)}
+            />
+
+            {/* Sliding Panel */}
+            <motion.div
+              className="fixed top-0 right-0 h-full w-[85vw] bg-orange-600 z-50 flex flex-col justify-between p-10"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'tween', duration: 0.4 }}
+            >
+              {/* Close button */}
+              <div className="absolute top-5 right-5">
+                <button
+                  onClick={() => setOpen(false)}
+                  className="w-10 h-10 flex items-center justify-center text-black"
+                >
+                  <X size={28} />
+                </button>
+              </div>
+
+              {/* Nav Links */}
+              <div className="flex flex-col gap-6 mt-16">
+                {navLinks.map((link) => (
+                  <NavLink
+                    key={link.to}
+                    to={link.to}
+                    onClick={() => setOpen(false)}
+                    className="text-white text-3xl font-light hover:font-semibold transition-all"
+                  >
+                    {link.name}
+                  </NavLink>
+                ))}
+              </div>
+
+              {/* Contact Info */}
+              <div className="text-white text-sm">
+                <p className="font-semibold mb-1">Contact</p>
+                <p>info@amsconsulting.in</p>
+                <p>+91-9876543210</p>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

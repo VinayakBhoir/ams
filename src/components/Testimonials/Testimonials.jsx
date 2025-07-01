@@ -28,14 +28,14 @@ const Testimonials = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <section className="py-16 px-4 bg-gray-50 text-center">
+    <section className="py-20 px-6 bg-[var(--color-muted)] text-center">
       <motion.h2
-        className="text-3xl font-bold mb-12 text-gray-800"
+        className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-12"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -44,24 +44,30 @@ const Testimonials = () => {
         What Our Clients Say
       </motion.h2>
 
-      <div className="relative max-w-lg w-full mx-auto min-h-[380px] sm:min-h-[400px] px-4">
+      <div className="relative max-w-xl mx-auto min-h-[400px] sm:min-h-[420px] px-4">
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
-            className="absolute inset-0 p-6 bg-white rounded-xl shadow-xl w-full max-w-full mx-auto"
+            className="absolute inset-0 bg-[var(--color-surface)] rounded-2xl shadow-soft p-8 text-left"
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -30, scale: 0.95 }}
             transition={{ duration: 0.5 }}
           >
-            <img
-              src={testimonials[index].image}
-              alt={testimonials[index].author}
-              className="w-20 h-20 rounded-full mx-auto mb-4 object-cover shadow-md"
-            />
-            <p className="italic text-gray-600 mb-4 leading-relaxed">"{testimonials[index].quote}"</p>
-            <h4 className="text-lg font-semibold text-gray-800">{testimonials[index].author}</h4>
-            <p className="text-sm text-gray-500">{testimonials[index].designation}</p>
+            <div className="flex flex-col items-center">
+              <img
+                src={testimonials[index].image}
+                alt={testimonials[index].author}
+                className="w-20 h-20 rounded-full object-cover shadow-lg mb-4 border-4 border-white"
+              />
+              <p className="italic text-[var(--color-text-sub)] text-lg mb-6 leading-relaxed text-center max-w-md">
+                “{testimonials[index].quote}”
+              </p>
+              <div className="text-center">
+                <h4 className="text-xl font-semibold text-[var(--color-text)]">{testimonials[index].author}</h4>
+                <p className="text-sm text-[var(--color-accent)] mt-1">{testimonials[index].designation}</p>
+              </div>
+            </div>
           </motion.div>
         </AnimatePresence>
       </div>

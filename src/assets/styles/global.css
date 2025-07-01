@@ -1,0 +1,111 @@
+/* ----------------------------------------------------
+  Global Variables & Colors - Premium Warm Theme
+---------------------------------------------------- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Inspired by Varma Corp (Rich, Premium, Orange-Cream Theme) */
+    --color-primary: #ea580c;           /* Deep Warm Orange */
+    --color-primary-dark: #c2410c;      /* Burnt Orange */
+    --color-secondary: #1e1e1e;         /* Soft Black */
+    --color-accent: #f97316;            /* Bright Saffron Orange */
+
+    --color-text: #1a1a1a;              /* Almost Black */
+    --color-text-sub: #4b4b4b;          /* Medium Warm Gray */
+    --color-muted: #fef2e8;             /* Warm Peach Tint */
+    --color-background: #fdf6f0;        /* Blushed Light Cream */
+    --color-surface: #fffaf5;           /* Off-white Surface */
+  }
+
+  body {
+    @apply bg-[var(--color-background)] text-[var(--color-text)] font-sans antialiased;
+  }
+}
+
+/* ----------------------------------------------------
+  Typography Styles
+---------------------------------------------------- */
+@layer components {
+  .heading-primary {
+    @apply text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--color-primary)];
+  }
+
+  .heading-secondary {
+    @apply text-3xl font-bold text-[var(--color-secondary)] mb-6;
+  }
+
+  .paragraph {
+    @apply text-base md:text-lg leading-relaxed text-[var(--color-text-sub)];
+  }
+
+  .section-padding {
+    @apply py-20 px-6 md:px-12;
+  }
+}
+
+/* ----------------------------------------------------
+  Button Styles
+---------------------------------------------------- */
+@layer components {
+  .btn-primary {
+    @apply bg-[var(--color-primary)] text-white px-6 py-3 rounded-full shadow-md hover:bg-[var(--color-primary-dark)] transition-all duration-300;
+  }
+
+  .btn-outline {
+    @apply border border-[var(--color-primary)] text-[var(--color-primary)] px-6 py-3 rounded-full hover:bg-[var(--color-muted)] transition-all duration-300;
+  }
+}
+
+/* ----------------------------------------------------
+  Utility Enhancements
+---------------------------------------------------- */
+@layer utilities {
+  .bg-surface {
+    background-color: var(--color-surface);
+  }
+
+  .text-accent {
+    color: var(--color-accent);
+  }
+
+  .shadow-soft {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* ----------------------------------------------------
+  Component Specific Styling
+---------------------------------------------------- */
+.hero-slide {
+  @apply w-full h-screen object-cover brightness-90;
+}
+
+.testimonial-card {
+  @apply p-8 bg-[var(--color-surface)] rounded-2xl shadow-soft text-center max-w-lg mx-auto;
+}
+
+.footer {
+  @apply bg-[var(--color-muted)] text-[var(--color-text-sub)] border-t border-gray-300 pt-12 pb-8 text-sm;
+}
+
+.footer h4 {
+  @apply text-[var(--color-text)] font-semibold mb-4 text-base;
+}
+
+.footer a {
+  @apply hover:text-[var(--color-primary)] transition-colors duration-300;
+}
+
+.footer-disclaimer {
+  @apply text-xs text-gray-500 leading-relaxed mt-4;
+}
+
+/* ----------------------------------------------------
+  Responsive Layout Utilities
+---------------------------------------------------- */
+.container-responsive {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}

@@ -26,9 +26,9 @@ const tips = [
 
 const Troubleshooting = () => {
   return (
-    <section className="bg-white py-16 px-4">
+    <section className="bg-[var(--color-surface)] py-16 px-4">
       <motion.h2
-        className="text-3xl font-bold text-center mb-8 text-gray-800"
+        className="text-3xl font-bold text-center mb-8 text-[var(--color-primary)]"
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -41,14 +41,16 @@ const Troubleshooting = () => {
         {tips.map((tip, i) => (
           <motion.div
             key={i}
-            className="bg-gray-100 p-6 rounded-lg shadow hover:shadow-md transition"
+            className="bg-[var(--color-background)] border border-[var(--color-muted)] p-6 rounded-xl shadow-soft transition hover:shadow-md"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.2, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-xl font-semibold mb-2 text-blue-700">{tip.title}</h3>
-            <p className="text-gray-600">{tip.description}</p>
+            <h3 className="text-xl font-semibold mb-2 text-[var(--color-accent)]">
+              {tip.title}
+            </h3>
+            <p className="text-[var(--color-text)]">{tip.description}</p>
           </motion.div>
         ))}
       </div>

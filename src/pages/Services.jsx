@@ -2,17 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import VideoSection from '../components/VideoSection';
 import ServiceFeatures from '../components/ServiceFeatures';
-import AnimatedStats from '../components/AnimatedStats';
 import TroubleshootingTips from '../components/TroubleshootingTips';
 import ConcreteMixDesigns from '../components/ConcreteMixDesigns';
-// import CustomerFocus from '../components/CustomerFocus';
 import MixDesigns from '../components/MixDesign/MixDesigns';
 import Troubleshooting from '../components/ServiceTips/Troubleshooting';
 import ProfitStrategies from '../components/ServiceTips/ProfitStrategies';
 import CustomerFocus from '../components/ServiceTips/CustomerFocus';
 import PageWrapper from '../components/PageWrapper';
 import { Helmet } from 'react-helmet-async';
-
 
 const services = [
   {
@@ -56,15 +53,17 @@ const services = [
 const Services = () => {
   return (
     <PageWrapper>
-
       <Helmet>
         <title>Our Services | AMS Concrete Consultancy</title>
-        <meta name="description" content="Explore AMS’s full range of services including RMC plants, mix designs, site testing, quality assurance, and more." />
+        <meta
+          name="description"
+          content="Explore AMS’s full range of services including RMC plants, mix designs, site testing, quality assurance, and more."
+        />
       </Helmet>
 
-      <div className="min-h-screen bg-white px-6 py-20">
+      <div className="min-h-screen bg-[var(--color-surface)] px-6 py-20">
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6"
+          className="text-3xl md:text-4xl font-bold text-center text-[var(--color-primary)] mb-6"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -74,16 +73,17 @@ const Services = () => {
         </motion.h2>
 
         <motion.p
-          className="max-w-3xl text-lg text-center text-gray-600 mx-auto mb-12"
+          className="max-w-3xl text-lg text-center text-[var(--color-text-sub)] mx-auto mb-12"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
           viewport={{ once: true }}
         >
-          AMS offers a full spectrum of concrete-related services to help you build better, faster, and smarter. From testing to consulting, we ensure excellence at every stage of your construction process.
+          AMS offers a full spectrum of concrete-related services to help you build better, faster,
+          and smarter. From testing to consulting, we ensure excellence at every stage of your
+          construction process.
         </motion.p>
 
-        {/* ⬇️ Video Section */}
         <div className="mb-16">
           <VideoSection />
         </div>
@@ -91,11 +91,6 @@ const Services = () => {
         <div className="mb-16">
           <ServiceFeatures />
         </div>
-
-        {/* repeated: home and services */}
-        {/* <div className="mb-16">
-          <AnimatedStats />
-        </div> */}
 
         <div className="mb-16">
           <TroubleshootingTips />
@@ -125,20 +120,22 @@ const Services = () => {
           <CustomerFocus />
         </div>
 
-        {/* ⬇️ Services Grid */}
+        {/* Services Grid */}
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="bg-gray-50 p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-all"
+              className="bg-[var(--color-background)] p-6 rounded-xl shadow-soft border border-[var(--color-muted)] hover:shadow-md transition-all"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               viewport={{ once: true }}
             >
               <div className="text-4xl mb-4">{service.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">{service.title}</h3>
-              <p className="text-gray-600 text-sm">{service.description}</p>
+              <h3 className="text-xl font-semibold text-[var(--color-accent)] mb-2">
+                {service.title}
+              </h3>
+              <p className="text-sm text-[var(--color-text-sub)]">{service.description}</p>
             </motion.div>
           ))}
         </div>

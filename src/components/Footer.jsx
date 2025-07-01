@@ -4,34 +4,53 @@ import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 pt-12 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 pb-10">
+    <footer className="bg-[var(--color-secondary)] text-gray-200 pt-16 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 pb-12">
         {/* Logo and Tagline */}
         <div>
-          <h3 className="text-2xl font-bold text-white mb-3">AMS</h3>
-          <p className="text-sm leading-relaxed">
+          <h3 className="text-2xl font-extrabold text-white mb-3 tracking-wide">
+            AMS
+          </h3>
+          <p className="text-sm leading-relaxed text-gray-300">
             Your trusted concrete consultancy since 2019. Delivering quality and innovation in construction solutions.
           </p>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h4 className="text-xl font-semibold text-white mb-3">Quick Links</h4>
+          <h4 className="text-lg font-semibold text-white mb-4 uppercase tracking-wide">
+            Quick Links
+          </h4>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/" className="hover:text-white transition">Home</Link></li>
-            <li><Link to="/about" className="hover:text-white transition">About Us</Link></li>
-            <li><Link to="/services" className="hover:text-white transition">Services</Link></li>
-            <li><Link to="/products" className="hover:text-white transition">Products</Link></li>
-            <li><Link to="/contact" className="hover:text-white transition">Contact Us</Link></li>
+            {[
+              { label: "Home", to: "/" },
+              { label: "About Us", to: "/about" },
+              { label: "Services", to: "/services" },
+              { label: "Products", to: "/products" },
+              { label: "Contact Us", to: "/contact" },
+            ].map((link) => (
+              <li key={link.to}>
+                <Link
+                  to={link.to}
+                  className="hover:text-[var(--color-primary)] transition-colors duration-300"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
         {/* Contact Info */}
         <div>
-          <h4 className="text-xl font-semibold text-white mb-3">Contact Us</h4>
-          <p className="text-sm mb-2">📍 AT POST THERGAON, Pune, Maharashtra, India</p>
-          <p className="text-sm mb-2">📞 +91-8048372681</p>
-          <p className="text-sm">✉️ info@AMS.com</p>
+          <h4 className="text-lg font-semibold text-white mb-4 uppercase tracking-wide">
+            Contact Us
+          </h4>
+          <div className="text-sm space-y-2 leading-relaxed text-gray-300">
+            <p>📍 AT POST THERGAON, Pune, Maharashtra, India</p>
+            <p>📞 +91-8048372681</p>
+            <p>✉️ info@AMS.com</p>
+          </div>
         </div>
       </div>
 

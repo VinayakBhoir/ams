@@ -11,17 +11,16 @@ const images = [hero1, hero2, hero3];
 const Hero = () => {
   const [index, setIndex] = useState(0);
 
-  // Auto-cycle images
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
-    }, 5000); // change every 5 seconds
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden text-white">
-      {/* Animated Background Image */}
+      {/* Background Image Slider */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
           <motion.img
@@ -35,33 +34,32 @@ const Hero = () => {
             transition={{ duration: 1.5 }}
           />
         </AnimatePresence>
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/60" />
       </div>
 
-      {/* Content */}
+      {/* Hero Text Content */}
       <motion.div
         className="relative z-10 max-w-4xl text-center px-6"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+        <h1 className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight text-[var(--color-muted)]">
           Building Trust in Every Pour
         </h1>
-        <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-[var(--color-surface)] mb-8 max-w-2xl mx-auto">
           AMS – Your trusted concrete consultancy since 2019. We deliver precision, quality, and expertise for every construction challenge.
         </p>
         <div className="flex justify-center gap-4 flex-wrap">
           <Link
             to="/services"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full transition-all"
+            className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white px-6 py-3 rounded-full transition-all"
           >
             Explore Services
           </Link>
           <Link
             to="/contact"
-            className="border border-white text-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-full transition-all"
+            className="border border-[var(--color-muted)] text-[var(--color-muted)] hover:bg-[var(--color-muted)] hover:text-[var(--color-secondary)] px-6 py-3 rounded-full transition-all"
           >
             Get in Touch
           </Link>

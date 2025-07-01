@@ -17,9 +17,9 @@ const VideoSection = () => {
       </video>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/10 flex flex-col items-center justify-center text-center px-4">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-black/30 flex flex-col items-center justify-center text-center px-4">
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-white mb-4"
+          className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-4 drop-shadow-lg"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -29,7 +29,7 @@ const VideoSection = () => {
         </motion.h2>
 
         <motion.p
-          className="text-white text-sm md:text-lg max-w-2xl"
+          className="text-[var(--color-muted)] text-sm md:text-lg max-w-2xl drop-shadow-md"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
