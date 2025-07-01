@@ -35,10 +35,12 @@ const EnquiryPopup = () => {
                         >
                             <button
                                 onClick={togglePopup}
-                                className="fixed bottom-20 right-6 absolute top-3 right-3 text-gray-600 hover:text-red-500"
+                                className="absolute top-3 right-3 text-gray-600 hover:text-red-500"
+                                aria-label="Close Enquiry Popup"
                             >
                                 <X size={20} />
                             </button>
+
 
                             <h3 className="text-xl font-semibold text-gray-800 mb-4">
                                 Quick Enquiry
