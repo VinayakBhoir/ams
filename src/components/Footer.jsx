@@ -1,18 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import logo from "../assets/images/logo.jpg"; // ✅ Import logo image
 
 const Footer = () => {
   return (
     <footer className="bg-[var(--color-secondary)] text-gray-200 pt-16 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 pb-12">
         {/* Logo and Tagline */}
-        <div>
-          <h3 className="text-2xl font-extrabold text-white mb-3 tracking-wide">
-            AMS
-          </h3>
+        <div className="flex flex-col items-start">
+          {/* ✅ Logo */}
+          <img
+            src={logo}
+            alt="AMS Logo"
+            className="h-16 w-auto mb-3 object-contain"
+            loading="lazy"
+          />
           <p className="text-sm leading-relaxed text-gray-300">
-            Your trusted concrete consultancy since 2019. Delivering quality and innovation in construction solutions.
+            Your trusted concrete consultancy since 2019. Delivering quality and
+            innovation in construction solutions.
           </p>
         </div>
 
