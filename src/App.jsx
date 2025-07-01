@@ -4,10 +4,12 @@ import { AnimatePresence } from 'framer-motion';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import EnquiryPopup from "./components/EnquiryPopup";
 
+import Header from "./components/Header";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Loader from './components/Loader';
+
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -46,6 +48,7 @@ function App() {
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Navbar />
+        <Header />
         <main className="flex-grow">
           {loading ? <Loader /> : <AnimatedRoutes />}
         </main>
