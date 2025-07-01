@@ -1,14 +1,34 @@
 import React from 'react';
-import { motion } from "framer-motion";
-import Testimonials from '../components/Testimonials/Testimonials';
+import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
+
+import Hero from '../components/Hero';
+import Achievements from '../components/Achievements';
 import Clients from '../components/Clients/Clients';
 import RMCPlants from '../components/RMC_Plants/RMCPlants';
+import Testimonials from '../components/Testimonials/Testimonials';
+import PageWrapper from '../components/PageWrapper';
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-white px-6">
-      {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center py-24">
+    <PageWrapper>
+      <Helmet>
+        <title>AMS | Concrete Consultancy & RMC Solutions</title>
+        <meta
+          name="description"
+          content="AMS provides expert concrete solutions, RMC services, and consultancy since 2019. Discover quality, innovation, and excellence."
+        />
+        <meta
+          name="keywords"
+          content="AMS, concrete, RMC, consultancy, construction, paver blocks"
+        />
+      </Helmet>
+
+      {/* Hero Slider Section */}
+      <Hero />
+
+      {/* Welcome Section */}
+      <section className="bg-white text-center py-24 px-6">
         <motion.h1
           className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4"
           initial={{ opacity: 0, y: -30 }}
@@ -19,7 +39,7 @@ const Home = () => {
         </motion.h1>
 
         <motion.p
-          className="text-lg text-gray-600 max-w-xl"
+          className="text-lg text-gray-600 max-w-xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
@@ -49,17 +69,20 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* Testimonials */}
+      {/* Achievements Section */}
+      <Achievements />
+
+      {/* Trusted Clients Section */}
+      <Clients />
+
+      {/* RMC Plants Section */}
+      <RMCPlants />
+
+      {/* Testimonials Section */}
       <section className="py-16">
         <Testimonials />
       </section>
-
-      {/* Clients */}
-        <Clients />
-
-      {/* RMC Plants */}
-        <RMCPlants />
-    </div>
+    </PageWrapper>
   );
 };
 

@@ -1,42 +1,90 @@
-// src/components/Navbar.jsx
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Close mobile menu on route change
+    setIsOpen(false);
+  }, [location]);
+
+  const navLinks = [
+    { name: "Home", to: "/" },
+    { name: "About", to: "/about" },
+    { name: "Services", to: "/services" },
+    { name: "Products", to: "/products" },
+    { name: "Contact", to: "/contact" },
+  ];
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-blue-600">AMS</Link>
+    <header className={`w-full top-0 z-50 transition-shadow duration-300 ${scrolled ? "shadow-md bg-white" : "bg-white/90 backdrop-blur"}`}>
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        {/* Logo */}
+        <Link to="/" className="text-xl font-bold text-blue-700">
+          AMS
+        </Link>
 
-        <div className="hidden md:flex space-x-6 text-sm font-semibold">
-          <Link to="/" className="hover:text-blue-600">Home</Link>
-          <Link to="/about" className="hover:text-blue-600">About</Link>
-          <Link to="/services" className="hover:text-blue-600">Services</Link>
-          <Link to="/products" className="hover:text-blue-600">Products</Link>
-          <Link to="/contact" className="hover:text-blue-600">Contact</Link>
-        </div>
+        {/* Desktop Links */}
+        <nav className="hidden md:flex gap-6">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              className={({ isActive }) =>
+                `text-sm font-medium transition hover:text-blue-700 ${isActive ? "text-blue-700" : "text-gray-700"}`
+              }
+            >
+              {link.name}
+            </NavLink>
+          ))}
+        </nav>
 
-        <button className="md:hidden" onClick={() => setOpen(!open)}>
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2}
-            viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round"
-              d={open ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-          </svg>
+        {/* Mobile Menu Toggle */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-gray-700"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {open && (
-        <div className="md:hidden px-4 pb-4 space-y-2">
-          <Link to="/" onClick={() => setOpen(false)} className="block">Home</Link>
-          <Link to="/about" onClick={() => setOpen(false)} className="block">About</Link>
-          <Link to="/services" onClick={() => setOpen(false)} className="block">Services</Link>
-          <Link to="/products" onClick={() => setOpen(false)} className="block">Products</Link>
-          <Link to="/contact" onClick={() => setOpen(false)} className="block">Contact</Link>
-        </div>
+      {/* Mobile Dropdown */}
+      {isOpen && (
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          className="md:hidden bg-white border-t px-6 pb-4"
+        >
+          <div className="flex flex-col space-y-4">
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className={({ isActive }) =>
+                  `text-sm font-medium ${isActive ? "text-blue-700" : "text-gray-700"} hover:text-blue-700`
+                }
+              >
+                {link.name}
+              </NavLink>
+            ))}
+          </div>
+        </motion.div>
       )}
-    </nav>
+    </header>
   );
 };
 

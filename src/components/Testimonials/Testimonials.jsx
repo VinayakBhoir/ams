@@ -44,11 +44,11 @@ const Testimonials = () => {
         What Our Clients Say
       </motion.h2>
 
-      <div className="relative h-[400px] max-w-3xl mx-auto">
+      <div className="relative max-w-lg w-full mx-auto min-h-[380px] sm:min-h-[400px] px-4">
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-md p-8 bg-white rounded-xl shadow-2xl"
+            className="absolute inset-0 p-6 bg-white rounded-xl shadow-xl w-full max-w-full mx-auto"
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -30, scale: 0.95 }}
@@ -57,10 +57,10 @@ const Testimonials = () => {
             <img
               src={testimonials[index].image}
               alt={testimonials[index].author}
-              className="w-20 h-20 rounded-full mx-auto mb-6 object-cover shadow-md"
+              className="w-20 h-20 rounded-full mx-auto mb-4 object-cover shadow-md"
             />
-            <p className="italic text-gray-600 mb-4">"{testimonials[index].quote}"</p>
-            <h4 className="text-xl font-semibold text-gray-800">{testimonials[index].author}</h4>
+            <p className="italic text-gray-600 mb-4 leading-relaxed">"{testimonials[index].quote}"</p>
+            <h4 className="text-lg font-semibold text-gray-800">{testimonials[index].author}</h4>
             <p className="text-sm text-gray-500">{testimonials[index].designation}</p>
           </motion.div>
         </AnimatePresence>
