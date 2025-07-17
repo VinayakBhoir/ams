@@ -1,6 +1,0 @@
-@import "./assets/styles/global.css";
-
-/* Then Tailwind’s layers */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
