@@ -17,10 +17,10 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Menu Button (inside Header, not fixed on screen) */}
+      {/* Menu Button */}
       <button
         onClick={() => setOpen(true)}
-        className="text-[#d6470b] text-2xl font-semibold hover:scale-110 transition-all"
+        className="text-primary text-xl font-medium hover:scale-110 transition-transform"
       >
         ☰
       </button>
@@ -37,9 +37,9 @@ const Navbar = () => {
               onClick={() => setOpen(false)}
             />
 
-            {/* Sliding Menu Panel */}
+            {/* Sliding Panel */}
             <motion.div
-              className="fixed top-0 right-0 h-full w-full md:w-[85vw] bg-[#d6470b] z-50 p-10 flex flex-col justify-between"
+              className="fixed top-0 right-0 h-full w-full md:w-[85vw] bg-primary z-50 p-10 flex flex-col justify-between"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -48,17 +48,17 @@ const Navbar = () => {
               {/* Close Icon */}
               <button
                 onClick={() => setOpen(false)}
-                className="absolute top-6 right-6 text-white hover:rotate-90 transition-all"
+                className="absolute top-6 right-6 text-white hover:rotate-90 transition-transform"
               >
                 <X size={32} strokeWidth={2.5} />
               </button>
 
-              {/* Side Label (Optional) */}
-              <div className="absolute top-1/2 left-6 -translate-y-1/2 -rotate-90 text-white tracking-wider text-xs font-medium uppercase">
+              {/* Rotated Side Label */}
+              <div className="absolute top-1/2 left-6 -translate-y-1/2 -rotate-90 text-white tracking-widest text-xs uppercase font-semibold">
                 Menu
               </div>
 
-              {/* Navigation Links */}
+              {/* Navigation */}
               <div className="flex flex-col gap-6 mt-24 pl-8 md:pl-24">
                 {navLinks.map((link) => (
                   <NavLink
@@ -66,8 +66,8 @@ const Navbar = () => {
                     to={link.to}
                     onClick={() => setOpen(false)}
                     className={({ isActive }) =>
-                      `text-white text-4xl md:text-5xl font-light tracking-tight transition-all ${
-                        isActive ? "font-semibold" : "hover:font-semibold"
+                      `text-white text-4xl md:text-5xl font-heading tracking-tight transition-all ${
+                        isActive ? "font-bold underline underline-offset-4" : "hover:font-semibold"
                       }`
                     }
                   >
@@ -76,12 +76,12 @@ const Navbar = () => {
                 ))}
               </div>
 
-              {/* Contact Info */}
-              <div className="text-white text-sm text-right pr-2 md:pr-10 mb-4">
-                <p className="font-bold text-lg">Contact</p>
-                <p>info@amsconsulting.in</p>
-                <p>hr@amsconsulting.in</p>
-                <p>+91 98765 43210</p>
+              {/* Contact Section */}
+              <div className="text-white text-sm text-right pr-2 md:pr-10 mb-4 leading-relaxed">
+                <p className="font-semibold text-lg mb-1">Contact</p>
+                <p className="opacity-90">info@AMS consulting.in</p>
+                <p className="opacity-90">hr@AMS consulting.in</p>
+                <p className="opacity-90">+91 98765 43210</p>
               </div>
             </motion.div>
           </>

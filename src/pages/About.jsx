@@ -1,109 +1,49 @@
-import React from "react";
-import sampleImage from '../assets/images/sample-2.jpeg';
+import React from 'react';
+import aboutImage from '../assets/images/about-image.png'; // Your precomposed image
 
 const About = () => {
   return (
-    <div className="bg-[#fff1ec] text-gray-800">
-      {/* Hero Banner */}
-      <section className="relative bg-[#fce2d8] py-28 px-6 md:px-16 text-center overflow-hidden">
-        <div className="max-w-5xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-serif italic text-[#d6470b] mb-6 leading-tight">
-            Building Bonds <br className="hidden md:block" /> Beyond Concrete
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
-            INFRABOND is more than a construction chemical brand — we are innovators, collaborators, and quality-obsessed experts shaping the future of modern infrastructure through science-backed solutions.
+    <section className="relative bg-[#FEF1EC] py-16 px-4 md:px-0 overflow-hidden">
+      {/* Heading */}
+      <h2 className="text-8xl italic font-light text-center text-gray-500 mb-16">
+        About <span className="not-italic font-normal">Us</span>
+      </h2>
+
+      {/* Image + Overlay Container */}
+      <div className="relative max-w-none mx-auto flex items-center justify-center min-h-[600px]">
+        {/* Image - Perfectly Centered */}
+        <div className="flex justify-center items-center w-full">
+          <img
+            src={aboutImage}
+            alt="About Us"
+            className="w-full md:w-full lg:w-5/6 xl:w-4/5 h-auto object-contain z-10 max-w-6xl mx-auto"
+          />
+        </div>
+
+        {/* Overlay Text - Clean Text Only */}
+        <div className="absolute left-8 md:left-16 lg:left-24 xl:left-32 top-1/2 -translate-y-1/2 max-w-sm lg:max-w-lg z-20">
+          <p className="text-gray-800 text-xl md:text-2xl lg:text-3xl leading-relaxed font-medium tracking-wide">
+            We have been <span className="font-bold text-[#E67E50] bg-gradient-to-r from-[#E67E50] to-[#d66a45] bg-clip-text text-transparent">building homes</span> with a lot of
+            passion for the <span className="font-bold text-gray-900">last 12 years</span>, with a single aim in mind: delivering homes of the
+            <span className="font-bold text-[#E67E50] bg-gradient-to-r from-[#E67E50] to-[#d66a45] bg-clip-text text-transparent"> highest standards</span>.
           </p>
         </div>
-      </section>
+      </div>
 
-      {/* Philosophy Section */}
-      <section className="py-24 px-6 md:px-16 bg-white">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-serif text-[#d6470b] mb-6">
-              The Science of Strength
-            </h2>
-            <p className="text-gray-700 text-lg leading-relaxed">
-              Founded with the vision to revolutionize the construction chemical industry,
-              INFRABOND delivers a diverse portfolio — from high-range water reducers and bonding agents
-              to concrete hardeners and admixtures designed for India’s most demanding construction needs.
-              <br /><br />
-              Our R&D-driven processes ensure every formulation meets rigorous standards of performance,
-              workability, and long-term durability.
-            </p>
-          </div>
-          <div>
-            <img
-              src={sampleImage}
-              alt="INFRABOND Research Lab"
-              className="w-full rounded-3xl shadow-2xl object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
-      <section className="bg-[#fae3d8] py-24 px-6 md:px-16">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
-          <div>
-            <h3 className="text-3xl md:text-4xl font-serif text-[#d6470b] mb-4">Our Mission</h3>
-            <p className="text-gray-700 text-lg leading-relaxed">
-              To empower builders and engineers with reliable, sustainable, and high-performing
-              construction chemical solutions that enhance every stage of construction — from pour to finish.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-3xl md:text-4xl font-serif text-[#d6470b] mb-4">Our Vision</h3>
-            <p className="text-gray-700 text-lg leading-relaxed">
-              To be the benchmark in construction chemistry across India,
-              known for integrity, technical innovation, and consistent excellence.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values */}
-      <section className="py-24 px-6 md:px-16 bg-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-serif text-[#d6470b] mb-12">
-            What Drives Us
-          </h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
-            {[
-              {
-                title: "Innovation",
-                content: "We invest in cutting-edge R&D and next-gen additives to improve performance and reduce lifecycle costs.",
-              },
-              {
-                title: "Quality",
-                content: "Each batch undergoes rigorous testing to meet global construction standards — ensuring durability and consistency.",
-              },
-              {
-                title: "Sustainability",
-                content: "We promote green construction by optimizing water use, reducing material waste, and improving efficiency.",
-              },
-            ].map((value, index) => (
-              <div key={index} className="bg-[#fff8f6] rounded-3xl shadow-md p-8">
-                <h4 className="text-2xl font-semibold text-[#d6470b] mb-3">{value.title}</h4>
-                <p className="text-gray-700 text-base leading-relaxed">
-                  {value.content}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Closing Statement */}
-      <section className="bg-[#d6470b] py-20 text-white text-center px-6 md:px-16">
-        <h2 className="text-3xl md:text-4xl font-serif italic mb-4">
-          Trusted by Builders, Engineered for Excellence
-        </h2>
-        <p className="max-w-3xl mx-auto text-lg font-light">
-          From residential towers to industrial flooring — INFRABOND's concrete solutions are engineered to perform and built to last.
+      {/* Bottom Section with Text and Button */}
+      <div className="text-center mt-16 max-w-5xl mx-auto px-8">
+        <p className="text-gray-700 text-2xl md:text-3xl lg:text-4xl font-normal leading-relaxed mb-10 tracking-wide">
+          Nothing great can be build without an amazing team in place. Proud to 
+          say that <span className="font-semibold text-gray-800">Varma Corp</span> today is team of <span className="font-semibold text-gray-800">125+</span> committed individuals with 
+          a <span className="font-semibold text-gray-800">common mission</span>.
         </p>
-      </section>
-    </div>
+        
+        {/* Meet our Team Button */}
+        <button className="bg-[#E67E50] hover:bg-[#d66a45] text-white text-xl font-semibold px-16 py-5 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 tracking-wide">
+          Meet our Team
+        </button>
+      </div>
+    </section>
   );
 };
 

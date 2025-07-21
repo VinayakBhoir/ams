@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/images/orange-logo-nobg.png";
+import logo from "../assets/images/logo.png";
 import Navbar from "./Navbar";
 
 const Header = () => {
@@ -8,7 +8,7 @@ const Header = () => {
   const isHome = location.pathname === "/";
 
   return (
-    <header className="w-full bg-[#FFEBE0] px-6 pt-4 pb-1 relative z-50">
+    <header className="w-full bg-neutral-light px-6 pt-4 pb-1 relative z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between relative min-h-[96px] md:min-h-[112px]">
         {/* Home Page: Logo aligned left */}
         {isHome ? (

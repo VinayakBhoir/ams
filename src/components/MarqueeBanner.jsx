@@ -1,9 +1,9 @@
 import React from 'react';
-import './MarqueeBanner.css'; // Keep your existing animation logic
+import './MarqueeBanner.css'; // Custom animation styles
 
 export default function MarqueeBanner() {
     return (
-        <section className="bg-[#fae3d8] border-y-8 border-primary overflow-hidden py-6">
+        <section className="bg-accent border-y-8 border-primary overflow-hidden py-6">
             <div className="marquee flex whitespace-nowrap animate-marquee gap-32">
                 {[
                     "Precision in Every Pour.",
@@ -13,7 +13,7 @@ export default function MarqueeBanner() {
                 ].map((text, idx) => (
                     <h2
                         key={idx}
-                        className="text-2xl md:text-4xl lg:text-5xl font-heading text-gray-700 flex-shrink-0"
+                        className="text-2xl md:text-4xl lg:text-5xl font-heading text-dark flex-shrink-0"
                     >
                         {text.split(' ').map((word, i) => {
                             const highlight = ["Every", "Strengthen", "Endures", "Real"];

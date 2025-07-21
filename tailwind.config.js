@@ -9,21 +9,23 @@ export default {
   ],
   theme: {
     extend: {
-      // 🔸 Custom brand color palette
+      // 🌟 Premium, Rich Color Palette
       colors: {
-        primary: '#d6470b',      // Branding orange
-        accent: '#f5cdbf',      // Soft pink
-        dark: '#1f1f1f',      // Near-black text
-        light: '#f7f6f5',      // Light gray
+        primary: '#1e3a8a',         // Deep indigo
+        secondary: '#0ea5e9',       // Bright cyan
+        accent: '#f59e0b',          // Warm gold
+        'neutral-dark': '#111827',  // Almost-black
+        neutral: '#374151',         // Slate gray
+        'neutral-light': '#f3f4f6', // Soft off-white
       },
 
-      // 🔸 Custom fonts for headings and body
+      // 🔹 Custom fonts for headings and body
       fontFamily: {
         sans: ['"Open Sans"', 'sans-serif'],
         heading: ['"Lora"', 'serif'],
       },
 
-      // 🔸 Keyframe animations for slide-in effects
+      // 🔹 Keyframe animations for slide-in effects
       keyframes: {
         slideInLeft: {
           '0%': { opacity: 0, transform: 'translateX(-50px)' },
@@ -35,7 +37,7 @@ export default {
         },
       },
 
-      // 🔸 Animation shortcuts using above keyframes
+      // 🔹 Animation shortcuts using above keyframes
       animation: {
         slideInLeft: 'slideInLeft 0.5s ease-out',
         slideInRight: 'slideInRight 0.5s ease-out',
@@ -43,8 +45,8 @@ export default {
     },
   },
 
-  // 🔸 Plugins
+  // 🔹 Plugins
   plugins: [
-    aspectRatio, // Tailwind's aspect ratio plugin
+    aspectRatio,
   ],
 }

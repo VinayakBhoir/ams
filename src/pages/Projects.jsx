@@ -1,62 +1,45 @@
 import React from 'react';
-import sampleImage from '../assets/images/sample-1.jpeg';
+import projects from '../data/projects.json';
 
-const products = [
-  {
-    title: 'QC Crote 2001',
-    description: 'High-range water reducing super plasticizer for RMC up to M-50 grade.',
-    features: '25% water reduction, high cohesion, cost-optimization.',
-    image: sampleImage,
-  },
-  {
-    title: 'QC Crote 1000',
-    description: 'Water reducing admixture specially designed for site mix concrete.',
-    features: '20% water reduction, improves workability, cohesive mix.',
-    image: sampleImage,
-  },
-  {
-    title: 'FAST HARD',
-    description: 'Accelerating admixture for quick setting of concrete.',
-    features: 'Improves flexural strength, reduces setting time, great for paver blocks.',
-    image: sampleImage,
-  },
-  {
-    title: 'PAVAR SHINE',
-    description: 'Surface finish enhancer for rubber moulding paver blocks.',
-    features: 'High gloss finish, enhances aesthetics of blocks.',
-    image: sampleImage,
-  },
-];
-
-const Projects = () => {
+export default function Projects() {
   return (
-    <div className="bg-[#fde9e1] min-h-screen py-20 px-6 md:px-16">
+    <div className="bg-accent min-h-screen py-24 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        {/* Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif text-[#d6470b] mb-4">
-            Our Construction Chemical Solutions
+
+        {/* Section Heading */}
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-heading text-primary mb-4">
+            Completed & Ongoing Projects
           </h2>
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Explore our proven range of performance-grade admixtures and chemical enhancers.
+          <p className="text-lg text-dark/70 max-w-2xl mx-auto font-light">
+            A showcase of our collaborations with renowned developers across landmark projects.
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-12">
-          {products.map((product, index) => (
-            <div key={index} className="flex flex-col">
-              <div className="overflow-hidden rounded-xl shadow-md">
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          {projects.map((project, idx) => (
+            <div
+              key={idx}
+              className="group relative bg-white rounded-2xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
+            >
+              {/* Image container to preserve size */}
+              <div className="aspect-video w-full overflow-hidden">
                 <img
-                  src={product.image}
-                  alt={product.title}
-                  className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+                  src={project.logo}
+                  alt={project.name}
+                  title={project.name}
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <div className="mt-4 px-1">
-                <h3 className="text-[#d6470b] text-2xl font-semibold mb-1">{product.title}</h3>
-                <p className="text-gray-800 text-base mb-1">{product.description}</p>
-                <p className="text-sm text-gray-600 italic">{product.features}</p>
+
+              {/* Overlay with title on hover */}
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-colors duration-300">
+                <div className="absolute bottom-0 w-full text-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h3 className="text-white text-2xl font-semibold">
+                    {project.name}
+                  </h3>
+                </div>
               </div>
             </div>
           ))}
@@ -64,6 +47,4 @@ const Projects = () => {
       </div>
     </div>
   );
-};
-
-export default Projects;
+}
