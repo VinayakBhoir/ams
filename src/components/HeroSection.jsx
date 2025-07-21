@@ -1,30 +1,37 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import hero2 from '../assets/hero/hero-image-2.png';
+import hero3 from '../assets/hero/hero-image-3.png';
+import hero4 from '../assets/hero/hero-image-4.png';
+import hero5 from '../assets/hero/hero-image-5.png';
+import hero6 from '../assets/hero/hero-image-6.png';
+import hero7 from '../assets/hero/hero-image-7.png';
+
 
 // Image + quote slides
 const slides = [
   {
-    image: "/hero/hero-image-2.png",
+    image: hero2,
     quote: "Where Quality Meets Concrete.",
   },
   {
-    image: "/hero/hero-image-3.png",
+    image: hero4,
     quote: "Concrete Work, Exceptional Results",
   },
   {
-    image: "/hero/hero-image-7.png",
+    image: hero7,
     quote: "Concrete Excellence, Unmatched Performance",
   },
   {
-    image: "/hero/hero-image-5.png",
+    image: hero5,
     quote: "Concrete Creations, Lasting Impressions",
   },
   {
-    image: "/hero/hero-image-6.png",
+    image: hero6,
     quote: "Concrete Innovations, Endless Possibilities",
   },
   {
-    image: "/hero/hero-image-3.png",
+    image: hero4,
     quote: "Concrete Creations, Permanent Sensations",
   },
 ];
@@ -66,7 +73,7 @@ export default function HeroSection() {
         </div>
 
         {/* Translucent overlay */}
-        <div className="absolute inset-0 bg-neutral-dark/40 backdrop-blur-sm z-10 transition-all duration-1000" />
+        <div className="absolute inset-0 bg-neutral-dark/40 z-10 transition-all duration-1000" />
 
         {/* Centered Quote Text */}
         <div className="absolute inset-0 z-20 flex items-center justify-center px-4 text-center">

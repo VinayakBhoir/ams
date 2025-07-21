@@ -7,54 +7,59 @@ const teamData = {
   intro: {
     heading: "The Team",
     description:
-      "A varied and multifaceted team comprising engineers, architects, and professionals from a spectrum of other disciplines.",
+      "Our strength lies in our diverse team of concrete technologists, civil engineers, and site specialists—each committed to delivering consistent, high-performance concrete solutions for every client.",
     image: sampleImage1,
   },
   founder: {
-    name: "Mr. John Doe",
-    title: "Founder & Managing Director",
-    description: `With over two decades of experience in construction and infrastructure, John has led the company's transformation from a small chemical supplier to a nationwide solution provider.\n\nPassionate about innovation and sustainability, he has been instrumental in delivering high-quality, scientifically formulated construction chemical products across various sectors.`,
+    name: "Mr. Abhijeet Madhavrao Sonawane",
+    title: "Founder & Chief Consultant",
+    description: `Established in 2019, Mr. Abhijeet Madhavrao Sonawane has led AMS to become one of the most trusted names in concrete consultancy and paver block manufacturing.\n\nWith a sharp focus on performance, quality, and cost-efficiency, he has helped transform AMS from a small manufacturer into a dependable partner for RMC plants and contractors across the region.\n\nHis leadership ensures that AMS delivers innovative concrete mix designs, robust QC/QA systems, and 24/7 technical support—all tailored to real project needs and grounded in practical implementation.`,
     image: profile,
   },
   managementTeam: [
     {
-      name: "Jane Smith",
-      role: "Head of Operations",
-      image: sampleImage1,
-    },
-    {
-      name: "David Lee",
-      role: "Business Development",
-      image: sampleImage1,
-    },
-    {
-      name: "Emily Brown",
-      role: "Product Innovation",
+      name: "Priya Shah",
+      role: "Head of Technical Services",
       description:
-        "Emily leads our innovation lab, driving new material development with cutting-edge chemistry and practical application testing.",
+        "Priya leads our on-site support and troubleshooting division, ensuring timely mix optimization and real-time QA/QC feedback for clients.",
       image: sampleImage1,
     },
     {
-      name: "Michael Patel",
-      role: "Architectural Advisor",
+      name: "Rohit Verma",
+      role: "Senior Concrete Technologist",
       description:
-        "Michael brings a creative edge to our structural solutions with his deep experience in architectural design and urban planning.",
+        "Rohit specializes in R&D, testing, and performance analytics of concrete mixes across varying grades and site conditions.",
+      image: sampleImage1,
+    },
+    {
+      name: "Sonal Desai",
+      role: "Quality Systems Lead",
+      description:
+        "Sonal ensures implementation of robust quality control frameworks for both RMC and site-mixed concrete.",
+      image: sampleImage1,
+    },
+    {
+      name: "Vikram Patil",
+      role: "Regional Projects Manager",
+      description:
+        "With his deep field experience, Vikram oversees multi-site coordination and client relationships across major infrastructure projects.",
       image: sampleImage1,
     },
   ],
   leadershipTeam: [
     {
-      name: "Sarah Thomas",
-      title: "VP | Engineering & R&D",
+      name: "Dr. Neha Kulkarni",
+      title: "VP | Concrete Science & Innovation",
       image: sampleImage1,
     },
     {
-      name: "Ravi Nair",
-      title: "VP | Strategy & Compliance",
+      name: "Karan Bhatia",
+      title: "VP | Operations & Strategic Planning",
       image: sampleImage1,
     },
   ],
 };
+
 
 const Team = () => {
   return (

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const About = () => {
-  const companyName = "INFRABOND";
+  const companyName = "AMS";
 
   return (
     <motion.section
@@ -48,15 +48,15 @@ const About = () => {
           transition={{ delay: 0.3, duration: 0.6 }}
         >
           <p className="text-neutral-dark text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed font-medium tracking-wide">
-            We’ve been{" "}
+            At{" "}
             <span className="font-bold text-accent bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
-              building infrastructure
+              {companyName}
+            </span>, we’ve spent over{" "}
+            <span className="font-bold text-neutral-dark">12 years</span> helping the concrete industry build{" "}
+            <span className="font-bold text-accent bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
+              stronger, smarter, and more efficient
             </span>{" "}
-            with care and commitment for over{" "}
-            <span className="font-bold text-neutral-dark">12 years</span>, always focused on delivering{" "}
-            <span className="font-bold text-accent bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
-              excellence and value
-            </span>.
+            structures—one project at a time.
           </p>
         </motion.div>
       </div>
@@ -68,11 +68,19 @@ const About = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.6 }}
       >
-        <p className="text-neutral text-2xl sm:text-3xl lg:text-4xl font-normal leading-relaxed tracking-wide mb-12">
-          Nothing great can be built without an amazing team. Proud to say{" "}
-          <span className="font-semibold text-neutral-dark">{companyName}</span> today is a team of{" "}
-          <span className="font-semibold text-neutral-dark">125+</span> dedicated individuals sharing a{" "}
-          <span className="font-semibold text-neutral-dark">common mission</span>.
+        <p className="text-neutral text-xl sm:text-2xl lg:text-3xl font-normal leading-relaxed tracking-wide mb-10">
+          At {companyName}, we’re dedicated to delivering high-performance, cost-effective concrete solutions 
+          without compromising quality. From site-mixed to RMC, we bring clarity, control, and consistency to your projects.
+        </p>
+
+        <p className="text-neutral text-lg sm:text-xl mb-6">
+          Our experts enhance your RMC plant’s efficiency with robust QC/QA systems, customized mix designs, and
+          project-specific planning—ensuring optimal strength and durability, every time.
+        </p>
+
+        <p className="text-neutral text-lg sm:text-xl mb-12">
+          We’re more than consultants—we’re your 24/7 technical partners. Backed by a passionate team of{" "}
+          <span className="font-semibold text-neutral-dark">125+</span>, {companyName} delivers results when it matters most.
         </p>
 
         <Link to="/team">
