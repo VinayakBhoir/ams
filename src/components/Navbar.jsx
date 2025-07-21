@@ -62,7 +62,7 @@ const Navbar = () => {
               {/* ✖ Close Button */}
               <motion.button
                 onClick={() => setOpen(false)}
-                className="fixed top-6 right-6 text-white hover:rotate-90 transition-transform z-50"
+                className="absolute top-6 right-6 text-white hover:rotate-90 transition-transform z-50"
                 aria-label="Close Menu"
                 initial={{ opacity: 0, rotate: -90 }}
                 animate={{ opacity: 1, rotate: 0 }}
