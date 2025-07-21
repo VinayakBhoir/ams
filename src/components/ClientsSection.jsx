@@ -1,30 +1,60 @@
-// src/components/ClientsSection.jsx
-import React from 'react';
-import clients from '../data/clients.json';
+import { motion } from "framer-motion";
+import clients from "../data/clients.json";
+
+const container = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
 
 export default function ClientsSection() {
   return (
-    <section className="bg-gray-50 py-16">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-12">
+    <motion.section
+      className="bg-neutral-light py-20"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={container}
+    >
+      <div className="max-w-7xl mx-auto px-4 text-center">
+        {/* Title */}
+        <motion.h2
+          className="text-3xl md:text-4xl font-heading font-semibold text-neutral-dark mb-12"
+          variants={item}
+        >
           Trusted by Leading Clients
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+        </motion.h2>
+
+        {/* Logo Grid */}
+        <motion.div
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 md:gap-10 items-center"
+          variants={container}
+        >
           {clients.map(({ logo, name }, idx) => (
-            <div
+            <motion.div
               key={idx}
-              className="flex items-center justify-center p-4 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="flex items-center justify-center p-4 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 ease-out"
+              variants={item}
+              whileHover={{ scale: 1.05 }}
             >
               <img
                 src={logo}
                 alt={name}
                 title={name}
-                className="h-16 object-contain grayscale hover:grayscale-0 transform hover:scale-105 transition-all duration-300"
+                className="h-16 object-contain"
               />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

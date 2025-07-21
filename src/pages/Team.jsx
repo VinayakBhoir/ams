@@ -1,7 +1,7 @@
 import React from "react";
+import { motion } from "framer-motion";
 import profile from "../assets/images/profile.jpg";
 import sampleImage1 from "../assets/images/sample-2.jpeg";
-// import sampleImage1 from "../assets/images/sample-1.jpeg";
 
 const teamData = {
   intro: {
@@ -60,85 +60,133 @@ const Team = () => {
   return (
     <div className="bg-light text-dark">
       {/* Intro Section */}
-      <section className="py-16 px-4 md:px-8 lg:px-12">
-        <div className="mb-8">
-          <h2 className="text-3xl font-light mb-2 font-heading">
-            <span className="italic">{teamData.intro.heading.split(" ")[0]}</span>{" "}
-            {teamData.intro.heading.split(" ").slice(1).join(" ")}
+      <section className="py-24 px-6 md:px-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-10"
+        >
+          <h2 className="text-4xl font-heading italic text-primary mb-4">
+            The <span className="not-italic">Team</span>
           </h2>
-          <hr className="border-t border-gray-400 mb-6" />
-        </div>
-        <p className="text-lg text-dark/70 mb-8 leading-relaxed max-w-3xl">{teamData.intro.description}</p>
-        <img
+          <hr className="border-t border-dark/30 mb-6" />
+          <p className="text-xl text-dark/70 leading-relaxed font-light max-w-3xl">
+            {teamData.intro.description}
+          </p>
+        </motion.div>
+
+        <motion.img
           src={teamData.intro.image}
           alt="Team"
-          className="w-full h-[400px] object-cover rounded-xl shadow-xl"
+          className="w-full h-[400px] object-cover rounded-3xl shadow-2xl transition-all duration-500 hover:shadow-[0_10px_60px_rgba(0,0,0,0.2)]"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
         />
       </section>
 
       {/* Founder Section */}
-      <section className="bg-primary text-white py-20 px-4 md:px-8 lg:px-12">
+      <motion.section
+        className="bg-primary text-white py-20 px-6 md:px-12"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="flex flex-col lg:flex-row items-center gap-10 max-w-7xl mx-auto">
           <img
             src={teamData.founder.image}
             alt={teamData.founder.name}
             className="rounded-xl shadow-xl w-[356px] h-[485px] object-cover"
           />
-
           <div className="max-w-2xl">
-            <h3 className="text-3xl md:text-4xl font-heading italic mb-2">{teamData.founder.name}</h3>
+            <h3 className="text-3xl md:text-4xl font-heading italic mb-2">
+              {teamData.founder.name}
+            </h3>
             <p className="text-lg italic mb-4">{teamData.founder.title}</p>
-            <p className="whitespace-pre-line text-base leading-relaxed mb-6">{teamData.founder.description}</p>
+            <p className="whitespace-pre-line text-base leading-relaxed mb-6">
+              {teamData.founder.description}
+            </p>
             <button className="bg-white text-primary px-6 py-2 rounded-full font-medium shadow-md hover:bg-gray-100 transition">
               Know more
             </button>
           </div>
         </div>
-      </section>
-
+      </motion.section>
 
       {/* Management Team */}
-      {/* <section className="py-20 px-4 md:px-8 lg:px-12 text-center">
-        <h2 className="text-4xl font-heading text-dark mb-12">Management Team</h2>
-        <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
+      {/* <motion.section
+        className="py-20 px-6 md:px-12 text-center"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-4xl font-heading text-dark mb-12">
+          Management Team
+        </h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
           {teamData.managementTeam.map((member, index) => (
-            <div key={index} className="flex flex-col bg-white rounded-xl shadow-md overflow-hidden">
+            <div
+              key={index}
+              className="flex flex-col bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl"
+            >
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-full h-[400px] object-cover transition-transform duration-300 hover:scale-105"
+                className="w-full h-[360px] object-cover transition-transform duration-300 hover:scale-105"
               />
               <div className="p-6 text-left">
-                <h3 className="text-primary text-2xl font-semibold mb-1">{member.name}</h3>
+                <h3 className="text-primary text-2xl font-semibold mb-1">
+                  {member.name}
+                </h3>
                 <p className="text-dark text-base mb-1">{member.role}</p>
                 {member.description && (
-                  <p className="text-sm text-dark/70 italic">{member.description}</p>
+                  <p className="text-sm text-dark/70 italic">
+                    {member.description}
+                  </p>
                 )}
               </div>
             </div>
           ))}
         </div>
-      </section> */}
+      </motion.section> */}
 
       {/* Leadership Team */}
-      {/* <section className="bg-white py-20 px-4 md:px-8 lg:px-12 text-center">
-        <h2 className="text-4xl font-heading text-primary mb-12">Leadership Team</h2>
-        <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
+      {/* <motion.section
+        className="bg-white py-20 px-6 md:px-12 text-center"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-4xl font-heading text-primary mb-12">
+          Leadership Team
+        </h2>
+        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {teamData.leadershipTeam.map((leader, index) => (
-            <div key={index} className="flex flex-col bg-light rounded-xl shadow-md overflow-hidden">
+            <div
+              key={index}
+              className="flex flex-col bg-light rounded-xl shadow-md overflow-hidden transition hover:shadow-xl"
+            >
               <img
                 src={leader.image}
                 alt={leader.name}
-                className="w-full h-[400px] object-cover transition-transform duration-300 hover:scale-105"
+                className="w-full h-[360px] object-cover transition-transform duration-300 hover:scale-105"
               />
               <div className="p-6 text-left">
-                <h3 className="text-primary text-2xl font-semibold mb-1">{leader.name}</h3>
+                <h3 className="text-primary text-2xl font-semibold mb-1">
+                  {leader.name}
+                </h3>
                 <p className="text-dark text-base">{leader.title}</p>
               </div>
             </div>
           ))}
         </div>
-      </section> */}
+      </motion.section> */}
     </div>
   );
 };

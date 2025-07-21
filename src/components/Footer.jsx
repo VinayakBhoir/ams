@@ -1,133 +1,168 @@
-import React from 'react';
-import orangeLogo from '../assets/images/logo.png';
+import React from "react";
+import { motion } from "framer-motion";
+import orangeLogo from "../assets/images/logo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral-light text-dark pt-12">
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-5 gap-8">
-        {/* Logo and Description */}
+    <motion.footer
+      className="bg-neutral-light text-dark pt-12"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      {/* Main Content Grid */}
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-5 gap-10">
+        {/* Logo & Description */}
         <div>
-          <img
-            src={orangeLogo}
-            alt="AMS Logo"
-            className="h-18 mb-4"
-          />
-          <p className="text-sm text-dark/90">
+          <img src={orangeLogo} alt="AMS Logo" className="h-[72px] mb-4" />
+          <p className="text-sm text-dark/90 leading-relaxed max-w-xs">
             AMS is an ISO 9001:2008 certified company, committed to quality concrete solutions.
           </p>
         </div>
 
-        {/* AMS */}
-        <div>
-          <h3 className="text-primary font-semibold mb-3">AMS</h3>
-          <ul className="space-y-2 text-sm text-dark/80">
-            <li>About Us</li>
-            <li>Team</li>
-            <li>Director’s Message</li>
-            <li>Certifications</li>
-            <li>Contact</li>
-            <li>Careers</li>
-          </ul>
-        </div>
+        {/* Footer Columns */}
+        {[
+          {
+            title: "AMS",
+            items: [
+              { label: "About Us", href: "/about" },
+              { label: "Team", href: "/team" },
+              { label: "Director’s Message", href: "/about#director-message" },
+              { label: "Certifications", href: "/about#certifications" },
+              { label: "Contact", href: "/contact" },
+              { label: "Careers", href: "/careers" },
+            ],
+          },
+          {
+            title: "Our Products",
+            items: [
+              "Anti Washout Concrete",
+              "Tremie Concrete",
+              "Heavy Concrete",
+              "Borated Concrete",
+              "Dry Lean Concrete",
+              "Self-Compacting Concrete",
+              "High-Strength Concrete",
+              "High-Performance Durable Concrete",
+              "High Early-Strength Concrete",
+              "Colored Concrete",
+              "Fibre-Reinforced Concrete",
+              "Bucket Concrete",
+              "Pervious Concrete",
+              "Steel Fibre-Reinforced Concrete",
+              "Lightweight Concrete",
+            ],
+          },
+          {
+            title: "Services",
+            items: [
+              "24x7 Operational Service",
+              "Advanced Planning in Sensitive Areas",
+              "Target Closer",
+              "Lower Manpower Requirement for Client",
+              "Higher Safety",
+              "Rates Are Based on Products, Not Market",
+              "Economical",
+            ],
+          },
+          {
+            title: "Concrete Knowledge",
+            items: [
+              "Problems & Solutions",
+              "Concrete FAQs & Technical Q&A",
+              "Concrete Testing & Sampling Guide",
+              "Economical Mix Design Strategy",
+              "How Admixtures Work",
+            ],
+          },
+        ].map((section, idx) => (
+          <div key={idx}>
+            <h3 className="text-primary font-semibold mb-3">{section.title}</h3>
+            <ul className="space-y-2 text-sm text-dark/80">
+              {section.items.map((item, i) => (
+                <li
+                  key={i}
+                  className="hover:text-dark transition-colors duration-200"
+                >
+                  {typeof item === "string" ? (
+                    item
+                  ) : (
+                    <a href={item.href} className="hover:underline">
+                      {item.label}
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
 
-        {/* Products */}
-        <div>
-          <h3 className="text-primary font-semibold mb-3">Our Products</h3>
-          <ul className="space-y-2 text-sm text-dark/80">
-            <li>Anti Washout Concrete</li>
-            <li>Tremie Concrete</li>
-            <li>Heavy Concrete</li>
-            <li>Borated Concrete</li>
-            <li>Dry Lean Concrete</li>
-            <li>Self-Compacting Concrete</li>
-            <li>High-Strength Concrete</li>
-            <li>High-Performance Durable Concrete</li>
-            <li>High Early-Strength Concrete</li>
-            <li>Colored Concrete</li>
-            <li>Fibre-Reinforced Concrete</li>
-            <li>Bucket Concrete</li>
-            <li>Pervious Concrete</li>
-            <li>Steel Fibre-Reinforced Concrete</li>
-            <li>Lightweight Concrete</li>
-          </ul>
-        </div>
-
-        {/* Services */}
-        <div>
-          <h3 className="text-primary font-semibold mb-3">Services</h3>
-          <ul className="space-y-2 text-sm text-dark/80">
-            <li>24x7 Operational Service</li>
-            <li>Advanced Planning in Sensitive Areas</li>
-            <li>Target Closer</li>
-            <li>Lower Manpower Requirement for Client</li>
-            <li>Higher Safety</li>
-            <li>Rates Are Based on Products, Not Market</li>
-            <li>Economical</li>
-          </ul>
-        </div>
-
-        {/* Concrete Knowledge */}
-        <div>
-          <h3 className="text-primary font-semibold mb-3">Concrete Knowledge</h3>
-          <ul className="space-y-2 text-sm text-dark/80">
-            <li>Problems & Solutions</li>
-            <li>Concrete FAQs & Technical Q&A</li>
-            <li>Concrete Testing & Sampling Guide</li>
-            <li>Economical Mix Design Strategy</li>
-            <li>How Admixtures Work</li>
-          </ul>
-        </div>
       </div>
 
       {/* Quick Search */}
       <div className="border-t border-b border-gray-300 mt-10 pt-6 pb-4 px-4 md:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-3 text-sm text-gray-600">
-          {/* Title */}
-          <div className="col-span-2 md:col-span-1 flex items-start">
-            <span className="text-[#d6470b] font-semibold text-base">Quick Search</span>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-y-3 text-sm text-neutral">
+          <div className="col-span-2 sm:col-span-3 md:col-span-1 font-semibold text-base text-accent">
+            Quick Search
           </div>
 
-          {/* Quick Links */}
           {[
-            "2 BHKs in Punawale",
-            "4 BHKs in Punawale",
-            "3 BHKs in Punawale",
-            "Properties in Punawale",
-            "Offices in Moshi",
-            "Retail Spaces in Moshi",
-            "Commercial Properties Moshi",
-            "Avana Available Inventory",
-            "Resto Space in Moshi",
-            "Open Cafe in Moshi",
-            "Luxury Projects Pune",
-            "Real Estate Jobs in Pune",
+            "Self-Compacting Concrete",
+            "Anti Washout Concrete",
+            "High-Performance Durable Concrete",
+            "High Early-Strength Concrete",
+            "Fibre-Reinforced Concrete",
+            "Lightweight Concrete Applications",
+            "24x7 Concrete Delivery Service",
+            "Concrete for Sensitive Areas",
+            "Borated Concrete for Radiation Shielding",
+            "Economical Mix Design Strategy",
+            "Concrete Testing & Sampling Guide",
+            "How Admixtures Work in Concrete",
           ].map((label, idx) => (
-            <a key={idx} href="#" className="hover:underline hover:text-dark transition">
+            <a
+              key={idx}
+              href="#"
+              className="hover:underline hover:text-neutral-dark transition"
+            >
               {label}
             </a>
           ))}
         </div>
       </div>
 
+
       {/* Disclaimer */}
-      <div className="border-t border-gray-300 mt-10 pt-6 pb-4 px-4 max-w-7xl mx-auto text-xs text-dark/70">
+      <div className="border-t border-gray-300 mt-10 pt-6 pb-4 px-4 max-w-7xl mx-auto text-xs text-dark/70 leading-relaxed">
         <p className="mb-4">
-          <span className="font-semibold">Disclaimer:</span> All technical information provided on this website is for guidance only. Product usage should be verified on-site with actual trials. AMS holds the right to change product specifications without prior notice. All images, logos, and information are copyright of AMS. Any reproduction requires prior written consent.
+          <span className="font-semibold">Disclaimer:</span> All technical information provided
+          on this website is for guidance only. Product usage should be verified on-site with
+          actual trials. AMS holds the right to change product specifications without prior
+          notice. All images, logos, and information are copyright of AMS. Any reproduction
+          requires prior written consent.
         </p>
       </div>
 
       {/* Bottom Bar */}
       <div className="bg-primary text-white text-sm py-4 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
-          <p className="opacity-90">
-            <a href="#" className="hover:underline">Privacy Policy</a> |{" "}
-            <a href="#" className="hover:underline">Terms and Conditions</a>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+          <div className="space-x-2">
+            <a href="#" className="hover:underline opacity-90">
+              Privacy Policy
+            </a>
+            <span className="opacity-50">|</span>
+            <a href="#" className="hover:underline opacity-90">
+              Terms & Conditions
+            </a>
+          </div>
+
+          <p className="font-medium opacity-90">
+            © {new Date().getFullYear()} AMS &mdash; Build • Unique • Future
           </p>
 
-          <p className="font-medium opacity-90">© 2024 AMS | Build - Unique - Future</p>
-
           <p className="opacity-90">
-            Website Design by{" "}
+            Website by{" "}
             <a
               href="https://compwallah.com/"
               target="_blank"
@@ -139,7 +174,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 
